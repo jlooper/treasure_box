@@ -1,26 +1,15 @@
 <html>
   <head>
-    <style>
-    body {
-      margin: 1em auto;
-      max-width: 45em;
-      padding: 0.8em;
-      background: white;
-    }
-    </style>
+    
   </head>
   <body>
-    <h1>Photon servo control</h1>
-    <!--<input type="range" min="0" max="180" value="0" onchange="showValue(this.value)"/>
-    <span id="range">0</span>-->
+    
+    <input type="button" value="Open" onclick="setValue(140)">
 
-    <input type="button" value="Open" onclick="showValue(140)">
-
-    <input type="button" value="Close" onclick="showValue(60)">
+    <input type="button" value="Close" onclick="setValue(60)">
 
     <script type="text/javascript">
-    function showValue(newValue) {
-      //document.getElementById("range").innerHTML=newValue;
+    function setValue(newValue) {
       var request = new XMLHttpRequest();
       var dev_id = '270025001647343339383037';
       var access = '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5';
