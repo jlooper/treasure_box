@@ -14,7 +14,7 @@
       var dev_id = '270025001647343339383037';
       var access = '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5';
       var data = 'params='+newValue+'&access_token='+access;
-      var url = 'https://api.particle.io/v1/devices/'+dev_id+'/setpos/';
+      var url = 'https://api.particle.io/v1/devices/'+dev_id+'/setPosition/';
       request.open('POST', url, true);
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       request.send(data);
