@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <style>
+    body {
+      margin: 1em auto;
+      max-width: 45em;
+      padding: 0.8em;
+      background: white;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Photon servo control</h1>
+    <input type="range" min="0" max="180" value="0" onchange="showValue(this.value)"/>
+    <span id="range">0</span>
+    <script type="text/javascript">
+    function showValue(newValue) {
+      document.getElementById("range").innerHTML=newValue;
+      var request = new XMLHttpRequest();
+      var dev_id = '270025001647343339383037';
+      var access = '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5';
+      var data = 'params='+newValue+'&access_token='+access;
+      var url = 'https://api.particle.io/v1/devices/'+dev_id+'/setpos/';
+      request.open('POST', url, true);
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      request.send(data);
+    }
+    </script>
+  </body>
+</html>
