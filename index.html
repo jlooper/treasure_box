@@ -11,8 +11,13 @@
   </head>
   <body>
     <h1>Photon servo control</h1>
-    <input type="range" min="0" max="180" value="0" onchange="showValue(this.value)"/>
-    <span id="range">0</span>
+    <!--<input type="range" min="0" max="180" value="0" onchange="showValue(this.value)"/>
+    <span id="range">0</span>-->
+
+    <input type="button" value="Open" onclick="showValue(140)">
+
+    <input type="button" value="Close" onclick="showValue(60)">
+
     <script type="text/javascript">
     function showValue(newValue) {
       document.getElementById("range").innerHTML=newValue;
@@ -26,6 +31,5 @@
       request.send(data);
     }
     </script>
-    <input type="button" id="open" onclick="showValue(135)">Open</input>
   </body>
 </html>
