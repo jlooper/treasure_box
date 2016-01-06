@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+<body id="page-top">
+  
+  <% include ../partials/nav.ejs %>
+
+  <% include home.ejs %>
+
+  <div id="main"></div>
+
+  <% include ../partials/js.ejs %>
+
+  <script>
+    (function() {
+      MIKE.startApp();
+    })();
+  </script>
+
+</body>
+
+</html>
