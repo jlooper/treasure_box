@@ -11,17 +11,16 @@ window.Photon = (function($){
 			
 			e.preventDefault();
 
-			var dataToPost = {
+			var data = {
 				params: 140,
 				access_token: '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5'				
 			};
 
-			var serializedDataToPost = JSON.stringify(dataToPost);
-
+			
 			$.ajax({
-				url: 'https://api.particle.io/v1/devices/270025001647343339383037/setpos',
+				url: 'https://api.particle.io/v1/devices/270025001647343339383037/setpos/',
 				type: 'post',
-				data: serializedDataToPost,
+				data: data,
 				contentType: 'application/x-www-form-encoded'
 			}).done(function(data) {
 				$('.alert-success').toggle();
@@ -42,8 +41,6 @@ window.Photon = (function($){
 				
 			};
 
-			//var serializedDataToPost = JSON.stringify(dataToPost);
-			//console.log(serializedDataToPost)
 			$.ajax({
 				url: 'https://api.particle.io/v1/devices/270025001647343339383037/setpos/',
 				type: 'post',
