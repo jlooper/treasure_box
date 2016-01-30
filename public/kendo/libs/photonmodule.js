@@ -38,7 +38,7 @@ window.Photon = (function($){
 			e.preventDefault();
 
 			var dataToPost = {
-				params: 60,
+				params: 70,
 				access_token: access				
 			};
 			
