@@ -1,31 +1,33 @@
 window.Photon = (function($){
 	var _photonModule = {};
 	var _photonViewModel = {};
-
+	var url = 'https://api.particle.io/v1/devices/270025001647343339383037/setPosition/';
+	var access = '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5';
+		
 	
 	//temporary before RequireJS
 	_photonViewModel = kendo.observable({
+
 		
 		open: function(e){
 
 			
 			e.preventDefault();
 
-			var data = {
+			var dataToPost = {
 				params: 140,
-				access_token: '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5'				
+				access_token: access				
 			};
-
 			
 			$.ajax({
-				url: 'https://api.particle.io/v1/devices/270025001647343339383037/setpos/',
-				type: 'post',
-				data: data,
-				contentType: 'application/x-www-form-encoded'
+				url: url,
+				type: 'POST',
+    			data: dataToPost
 			}).done(function(data) {
 				$('.alert-success').toggle();
 				$(".success-message").html(data.message);
-			}).fail(function(datsa) {
+			}).fail(function(data) {
+				console.log(data)
 				$('.alert-danger').toggle();
 				$(".fail-message").html(data.message);
 			});
@@ -35,21 +37,20 @@ window.Photon = (function($){
 
 			e.preventDefault();
 
-			var data = {
+			var dataToPost = {
 				params: 60,
-				access_token: '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5'
-				
+				access_token: access				
 			};
-
+			
 			$.ajax({
-				url: 'https://api.particle.io/v1/devices/270025001647343339383037/setpos/',
-				type: 'post',
-				data: data,
-				contentType: 'application/json'
+				url: url,
+				type: 'POST',
+    			data: dataToPost
 			}).done(function(data) {
 				$('.alert-success').toggle();
 				$(".success-message").html(data.message);
 			}).fail(function(data) {
+				console.log(data)
 				$('.alert-danger').toggle();
 				$(".fail-message").html(data.message);
 			});
