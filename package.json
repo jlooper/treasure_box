@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "ejs": "2.3.3",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "mongoose": ">=4.1.11",
+    "body-parser": ">=1.5.2"
   },
   "engines": {
     "iojs": ">=3.3.x"

@@ -20,7 +20,7 @@ window.MIKE = (function($){
 		});		
 		
 		_homeView = new kendo.View('home-view', {
-			
+			model: window.Photon.getPhotonModel()
 		});
 		
 		_kendoRouter.route('/', function() {
