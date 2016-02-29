@@ -3,9 +3,11 @@ window.MIKE = (function($){
 	var _MIKE = {};
 	var _kendoRouter = {};
 	var _baseLayout = {};
-	var _contactView = {};
 	var _homeView = {};
-
+    var _aboutView = {};
+	var _troubleshootingView = {};
+    var _moreView = {};
+    var _guestbookView = {};
 	
 	
 	//set up our views, layout, and routes
@@ -22,10 +24,47 @@ window.MIKE = (function($){
 		_homeView = new kendo.View('home-view', {
 			model: window.Photon.getPhotonModel()
 		});
-		
-		_kendoRouter.route('/', function() {
-			_baseLayout.showIn('#content', _homeView);
+        
+        _aboutView = new kendo.View('about-view', {
+			//model: window.Photon.getAboutModel()
 		});
+        
+        _troubleshootingView = new kendo.View('troubleshooting-view', {
+			//model: window.Photon.getPhotonModel()
+		});
+        
+        _moreView = new kendo.View('more-view', {
+			//model: window.Photon.getPhotonModel()
+		});
+        
+        _guestbookView = new kendo.View('guestbook-view', {
+			model: window.Guestbook.getGuestbookModel(),
+            show: function() {
+				this.model.getEntries();
+			}          
+		});
+        
+        _kendoRouter.route('/', function() {
+		   _baseLayout.showIn('#content', _homeView);
+            
+		});
+
+        _kendoRouter.route('/guestbook', function() {
+			_baseLayout.showIn('#content', _guestbookView)
+		});
+        
+        _kendoRouter.route('/about', function() {
+			_baseLayout.showIn('#content', _aboutView);            
+		});
+        
+        _kendoRouter.route('/troubleshooting', function() {
+			_baseLayout.showIn('#content', _troubleshootingView);            
+		});
+        
+         _kendoRouter.route('/more', function() {
+			_baseLayout.showIn('#content', _moreView);            
+		});
+        
 		
 	}
 

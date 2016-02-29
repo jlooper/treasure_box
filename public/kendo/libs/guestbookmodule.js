@@ -1,53 +1,88 @@
-window.Contact = (function($){
-	var _contactModule = {};
-	var _contactViewModel = {};
+window.Guestbook = (function($){
+	var _guestbookModule = {};
+	var _guestbookViewModel = {};
 
-	
-	//temporary before RequireJS
-	_contactViewModel = kendo.observable({
-		fName: '',
-		lName: '',
-		email: '',
-		schedule: '',
-		status: '',
+	_guestbookViewModel = kendo.observable({
+        name: '',
+		box: 'duckweed',
+		locale: 'WCG',
+		date: '',
 		message: '',
-
-
-		
-		submitContactRequest: function(e){
+        
+        getEntries: function(e){
+            
+            var id;
+           
+           $.ajax({
+			url: '/api/guestbook/',
+				type: 'get',
+				contentType: 'application/json'
+			}).done(function(data) {
+                console.log(data)
+				    
+                if (data.length!=0) {
+                    $(".guestbookHeader").show();
+                }
+                else {
+                    $(".guestbookHeader").hide();
+                }			
+                $("#listViewGuestbook").kendoListView({
+                    dataSource: data,
+				    template: kendo.template($("#guestbook").html())
+				});
+                            
+			}).fail(function(data) {
+		});
+            
+        },
+        
+        submitGuestbookMessage: function(e){
 
 			e.preventDefault();
 
 			var dataToPost = {
-				lName: _contactViewModel.get('lName'),
-				fName: _contactViewModel.get('fName'),
-				email: _contactViewModel.get('email'),
-				schedule: _contactViewModel.get('schedule'),
-				status: _contactViewModel.get('status'),
-				message: _contactViewModel.get('message')
+                name: _guestbookViewModel.get('name'),
+				message: _guestbookViewModel.get('message'),
+                box: _guestbookViewModel.get('box'),
+                locale: _guestbookViewModel.get('locale'),
+                date: new Date()
 			};
 
 			var serializedDataToPost = JSON.stringify(dataToPost);
 
-			$.ajax({
-				url: '/api/contacts',
-				type: 'post',
-				data: serializedDataToPost,
-				contentType: 'application/json'
-			}).done(function(data) {
-				$('.alert-success').toggle();
-				$(".success-message").html(data.message);
-			}).fail(function(data) {
-				$('.alert-danger').toggle();
-				$(".fail-message").html(data.message);
-			});
+			var validator = $("#guestbookForm").kendoValidator().data("kendoValidator");
+            
+            if (validator.validate()) {
+                
+                $.ajax({
+					url: '/api/guestbook',
+					type: 'post',
+					data: serializedDataToPost,
+					contentType: 'application/json',
+                    success: function(result) {
+					   _guestbookViewModel.getEntries()
+        		    }
+				}).done(function(data) {
+					//toastr.success(data.message);
+                    //var router = new kendo.Router();
+				}).fail(function(data) {
+					//toastr.error(data.message);
+				});
+            } else {
+               //toastr.error("Sorry, you seem to be missing some information. Please correct the errors before proceeding.");
+             }
+			
 		}
 	});
 
-	_contactModule.getContactModel = function() {
-		return _contactViewModel;
+	_guestbookModule.getGuestbookModel = function() {
+        return _guestbookViewModel;
 	}
 
-	return _contactModule;
+
+	return _guestbookModule;
+
 
 })(jQuery);
+
+		

@@ -1,0 +1,81 @@
+<script type="text/x-kendo-template" id="guestbook-view">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        
+         <form id="guestbookForm" class="form-horizontal">
+         
+          <fieldset>
+              
+              <div class="well">
+              
+              <h2 class="section-heading">Sign our Guestbook!</h2>
+              <hr/>
+              
+              <div class="form-group required">
+               
+               <div class="col-lg-2">
+                <label for="name" class="control-label">Name</label>
+               </div>                        
+                 
+                <div class="col-lg-3">
+                 <input id="name"  data-bind="value: name"  name="name" required validationMessage="Enter your name" type="text" placeholder="Your name" class="form-control">
+                </div>
+                
+               
+               <div class="col-lg-2">
+                <label for="message" class="control-label">Message</label>
+               </div>                        
+                 
+                <div class="col-lg-5">
+                 <textarea id="message"  data-bind="value: message"  name="message" required validationMessage="Enter a message" placeholder="Your message" class="form-control"/>
+                </div>
+              
+               
+              
+              </div>
+
+               <div class="col-lg-offset-10">
+                <button type="submit" class="btn btn-primary" data-bind="click: submitGuestbookMessage">Submit</button>
+               </div>
+
+              </div>
+            
+            </fieldset>
+          
+          </form>
+          
+                   
+          
+            
+            <div class="k-content wide guestbook">
+            <div>
+                <table class="table table-bordered">
+                  <thead class="guestbookHeader" style="display:none"> 
+                    <tr>
+                      <th>Name</th>  
+                      <th>Message</th> 
+                      <th>Date</th> 
+                      </tr> 
+                  </thead>
+                    <tbody id="listViewGuestbook"></tbody>                    
+                </table>  
+              </div>         
+          </div>
+          
+          
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-kendo-template" id="guestbook">
+    <tr>
+      <td>#= name #</td>
+      <td>#= message #</td>
+      <td>#= kendo.toString(new Date(date), 'MM/dd/yyyy') #</td>     
+    </tr>
+    
+
+
+ </script>

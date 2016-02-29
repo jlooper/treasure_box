@@ -1,64 +1,64 @@
-var Contact=require('../models/contact');
+var Guestbook=require('../models/guestbook');
 var express=require('express');
 
 //configure routes
 
 var router=express.Router();
 
-router.route('/contacts')
+router.route('/guestbook')
     .get(function(req,res){
-       Contact.find(function(err,contacts){
+       Guestbook.find(function(err,guestbook){
            if(err)
                 res.send(err);
-           res.json(contacts);
+           res.json(guestbook);
        });
     })
 
     .post(function(req,res){
         console.log(req.body)
-        var contact=new Contact(req.body);
-        contact.save(function(err){
+        var guestbook=new Guestbook(req.body);
+        guestbook.save(function(err){
             if(err)
                 res.send(err);
-            res.send({message:'Contact Request submitted'});
+            res.send({message:'Guestbook message submitted'});
         });
     });
 
-router.route('/contact/:id')
+router.route('/guestbook/:id')
     .put(function(req,res){
-        Contact.findOne({_id:req.params.id},function(err,contact){
+        Guestbook.findOne({_id:req.params.id},function(err,guestbook){
 
             if(err)
                 res.send(err);
 
            for(prop in req.body){
-                contact[prop]=req.body[prop];
+                guestbook[prop]=req.body[prop];
            }
 
-            // save the contact request
-            contact.save(function(err) {
+            // save the guestbook request
+            guestbook.save(function(err) {
                 if (err)
                     res.send(err);
 
-                res.json({ message: 'Request updated!' });
+                res.json({ message: 'Guestbook updated!' });
             });
 
         });
     })
 
     .get(function(req,res){
-        Contact.findOne({_id:req.params.id},function(err, contact) {
+        Guestbook.findOne({_id:req.params.id},function(err, guestbook) {
             if(err)
                 res.send(err);
 
-            res.json(contact);
+            res.json(guestbook);
         });
     })
 
     .delete(function(req,res){
-        Contact.remove({
+        Guestbook.remove({
             _id: req.params.id
-        }, function(err, contact) {
+        }, function(err, guestbook) {
             if (err)
                 res.send(err);
 
