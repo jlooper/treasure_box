@@ -8,10 +8,12 @@ window.MIKE = (function($){
 	var _troubleshootingView = {};
     var _moreView = {};
     var _guestbookView = {};
-	
+   
 	
 	//set up our views, layout, and routes
 	_MIKE.initSPA = function() {
+        
+       
 
 		_baseLayout = new kendo.Layout('base-layout-template');
 

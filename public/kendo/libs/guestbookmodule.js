@@ -1,5 +1,6 @@
 window.Guestbook = (function($){
-	var _guestbookModule = {};
+    
+   var _guestbookModule = {};
 	var _guestbookViewModel = {};    
    
 	_guestbookViewModel = kendo.observable({

@@ -1,12 +1,9 @@
 window.Photon = (function($){
 	var _photonModule = {};
 	var _photonViewModel = {};
-    
-    var photonId = process.env.PHOTON_ID || '123';
-    var photonAccessToken = process.env.PHOTON_ACCESS_TOKEN || '123';
-
-	var url = 'https://api.particle.io/v1/devices/'+photonId+'/setPosition/';
-	
+	var url = 'https://api.particle.io/v1/devices/270025001647343339383037/setPosition/';
+	var access = '822a6a1265e7948ba1cfd7931eb4f63af04a1bf5';
+		
 	_photonViewModel = kendo.observable({
 
 		
@@ -17,7 +14,7 @@ window.Photon = (function($){
 
 			var dataToPost = {
 				params: 140,
-				access_token: photonAccessToken				
+				access_token: access				
 			};
 			
 			$.ajax({
