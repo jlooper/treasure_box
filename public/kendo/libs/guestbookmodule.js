@@ -1,10 +1,10 @@
 window.Guestbook = (function($){
 	var _guestbookModule = {};
-	var _guestbookViewModel = {};
-
+	var _guestbookViewModel = {};    
+   
 	_guestbookViewModel = kendo.observable({
         name: '',
-		box: 'duckweed',
+		box: 'sensitiveplant',
 		locale: 'WCG',
 		date: '',
 		message: '',
