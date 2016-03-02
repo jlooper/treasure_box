@@ -22,12 +22,9 @@ window.Photon = (function($){
 				type: 'POST',
     			data: dataToPost
 			}).done(function(data) {
-				$('.alert-success').toggle();
-				$(".success-message").html(data.message);
+				toastr.success(data.message);
 			}).fail(function(data) {
-				console.log(data)
-				$('.alert-danger').toggle();
-				$(".fail-message").html(data.message);
+				toastr.error(data.message);
 			});
 		},
 
@@ -45,12 +42,9 @@ window.Photon = (function($){
 				type: 'POST',
     			data: dataToPost
 			}).done(function(data) {
-				$('.alert-success').toggle();
-				$(".success-message").html(data.message);
+				toastr.success(data.message);
 			}).fail(function(data) {
-				console.log(data)
-				$('.alert-danger').toggle();
-				$(".fail-message").html(data.message);
+				toastr.error(data.message);
 			});
 		}
 	});

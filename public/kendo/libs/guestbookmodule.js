@@ -64,13 +64,12 @@ window.Guestbook = (function($){
 					   _guestbookViewModel.getEntries()
         		    }
 				}).done(function(data) {
-					//toastr.success(data.message);
-                    //var router = new kendo.Router();
+					toastr.success(data.message);
 				}).fail(function(data) {
-					//toastr.error(data.message);
+					toastr.error(data.message);
 				});
             } else {
-               //toastr.error("Sorry, you seem to be missing some information. Please correct the errors before proceeding.");
+               toastr.error("Sorry, you seem to be missing some information. Please correct the errors before proceeding.");
              }
 			
 		}
