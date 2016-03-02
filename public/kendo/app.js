@@ -78,8 +78,9 @@ window.MIKE = (function($){
 
 	
 	_MIKE.selectMenuItem = function() {
-		//this can vary depending on where a user enters the application
-		var currentView = document.URL.split('#/')[1];
+        
+       
+        var currentView = document.URL.split('#/')[1];
 		
 		$('.navbar-nav>li').removeClass('active')
 

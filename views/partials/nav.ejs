@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -14,19 +14,19 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="/#/about">About This Box</a>
+                    <li class="about">
+                        <a data-toggle="collapse" data-target="#navbar-collapse" class="page-scroll" href="/#/about">About This Box</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/#/guestbook">Guest Book</a>
+                    <li class="guestbook">
+                        <a data-toggle="collapse" data-target="#navbar-collapse" class="page-scroll" href="/#/guestbook">Guest Book</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/#/more">More boxes to find</a>
+                    <li class="more">
+                        <a data-toggle="collapse" data-target="#navbar-collapse" class="page-scroll" href="/#/more">More boxes to find</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/#/troubleshooting">Troubleshooting</a>
+                    <li class="troubleshooting">
+                        <a data-toggle="collapse" data-target="#navbar-collapse" class="page-scroll" href="/#/troubleshooting">Troubleshooting</a>
                     </li>
                 </ul>
             </div>
@@ -49,11 +49,11 @@
             <div class="row">
                 <div class="col-lg-3 text-center">
                     <i class="fa fa-twitter fa-3x"></i>
-                    <p>@jenlooper</p>
+                    <p><a href="https://twitter.com/jenlooper" target="_blank">@jenlooper</a></p>
                 </div>
                 <div class="col-lg-3 text-center">
                     <i class="fa fa-github fa-3x"></i>
-                    <p>Build your own boxes!</p>
+                    <p><a href="https://github.com/jlooper/treasure_box">Build your own boxes!</a></p>
                 </div>
                 <div class="col-lg-3 text-center">
                     <i class="fa fa-envelope-o fa-3x"></i>

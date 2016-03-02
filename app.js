@@ -27,8 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.set('myvar', 'test');
-
 app.use('/api',guestbook);
 
 app.get('/', function(request, response) {
