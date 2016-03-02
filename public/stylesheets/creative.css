@@ -178,7 +178,9 @@ header .header-content .header-content-inner p {
     background-color: #314422;
 }
 
-
+.btn-lg{
+    margin:5px;
+}
 .btn-default {
     border-color: #fff;
     color: #222;

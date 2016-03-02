@@ -21,10 +21,10 @@ window.Photon = (function($){
 				url: url,
 				type: 'POST',
     			data: dataToPost
-			}).done(function(data) {
-				toastr.success(data.message);
-			}).fail(function(data) {
-				toastr.error(data.message);
+			}).done(function() {
+				toastr.success("The box has been opened!");
+			}).fail(function() {
+				toastr.error("Sorry, there was a problem opening this box");
 			});
 		},
 
@@ -41,10 +41,10 @@ window.Photon = (function($){
 				url: url,
 				type: 'POST',
     			data: dataToPost
-			}).done(function(data) {
-				toastr.success(data.message);
-			}).fail(function(data) {
-				toastr.error(data.message);
+			}).done(function() {
+				toastr.success("The box has been closed");
+			}).fail(function() {
+				toastr.error("Sorry, there was a problem closing this box");
 			});
 		}
 	});
